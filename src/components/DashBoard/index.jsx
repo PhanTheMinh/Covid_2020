@@ -13,6 +13,8 @@ import { RotateSpinner } from "react-spinners-kit";
 import PageLoading from "../libs/pageloader";
 import './style.css';
 import MapContainer from './mar'
+import highChartsRender from '../chart/chart'
+
 
 import Highcharts from 'highcharts';
 
@@ -88,153 +90,153 @@ class DashBoard extends React.Component {
 	}
 
 
-	highChartsRender() {
-		Highcharts.chart({
-		    chart: {
-		      type: 'pie',
-		      renderTo: 'atmospheric-composition'
-		    },
-		    title: {
-		      verticalAlign: 'middle',
-		      floating: true,
-		      text: 'Earth\'s Atmospheric Composition',
-		      style: {
-		      	fontSize: '10px',
-		      }
-		    },
-		    plotOptions: {
-		      pie: {
-		      	dataLabels: {
-		      		format: '{point.name}: {point.percentage:.1f} %'
-		      	},
-		        innerSize: '70%'
-		      }
-		    },
-		    series: this.state.series
-		  });
-		  Highcharts.chart({
-		    chart: {
-		      type: 'area',
-		      renderTo: 'truongson'
-		    },
-		    title: {
-		      verticalAlign: 'middle',
-		      floating: true,
-		      text: 'truongson',
-		      style: {
-		      	fontSize: '10px',
-		      }
-			},
-			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
-				labels: {
-					formatter: function () {
-						return this.value;
-					}
-				}
-			},
-			yAxis: {
-				title: {
-					text: 'truongson'
-				},
-				labels: {
-					formatter: function () {
-						return this.value  ;
-					}
-				}
-			},
-		    plotOptions: {
-				area: {
-					marker: {
-						enabled: false,
-						symbol: 'circle',
-						radius: 1,
-						states: {
-							hover: {
-								enabled: true
-							}
-						}
-					}
-				}
-			},
+	// highChartsRender() {
+	// 	Highcharts.chart({
+	// 	    chart: {
+	// 	      type: 'pie',
+	// 	      renderTo: 'atmospheric-composition'
+	// 	    },
+	// 	    title: {
+	// 	      verticalAlign: 'middle',
+	// 	      floating: true,
+	// 	      text: 'Earth\'s Atmospheric Composition',
+	// 	      style: {
+	// 	      	fontSize: '10px',
+	// 	      }
+	// 	    },
+	// 	    plotOptions: {
+	// 	      pie: {
+	// 	      	dataLabels: {
+	// 	      		format: '{point.name}: {point.percentage:.1f} %'
+	// 	      	},
+	// 	        innerSize: '70%'
+	// 	      }
+	// 	    },
+	// 	    series: this.state.series
+	// 	  });
+	// 	  Highcharts.chart({
+	// 	    chart: {
+	// 	      type: 'area',
+	// 	      renderTo: 'truongson'
+	// 	    },
+	// 	    title: {
+	// 	      verticalAlign: 'middle',
+	// 	      floating: true,
+	// 	      text: 'truongson',
+	// 	      style: {
+	// 	      	fontSize: '10px',
+	// 	      }
+	// 		},
+	// 		xAxis: {
+	// 			categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
+	// 			labels: {
+	// 				formatter: function () {
+	// 					return this.value;
+	// 				}
+	// 			}
+	// 		},
+	// 		yAxis: {
+	// 			title: {
+	// 				text: 'truongson'
+	// 			},
+	// 			labels: {
+	// 				formatter: function () {
+	// 					return this.value  ;
+	// 				}
+	// 			}
+	// 		},
+	// 	    plotOptions: {
+	// 			area: {
+	// 				marker: {
+	// 					enabled: false,
+	// 					symbol: 'circle',
+	// 					radius: 1,
+	// 					states: {
+	// 						hover: {
+	// 							enabled: true
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 		},
 			
-			series: this.state.mai
-		  });
-		  Highcharts.chart({
-		    chart: {
-		      type: 'line',
-		      renderTo: 'truongson3'
-		    },
-		    title: {
-		      verticalAlign: 'middle',
-		      floating: true,
-		      text: 'truongson3',
-		      style: {
-		      	fontSize: '10px',
-		      }
-			},
-			xAxis: {
+	// 		series: this.state.mai
+	// 	  });
+	// 	  Highcharts.chart({
+	// 	    chart: {
+	// 	      type: 'line',
+	// 	      renderTo: 'truongson3'
+	// 	    },
+	// 	    title: {
+	// 	      verticalAlign: 'middle',
+	// 	      floating: true,
+	// 	      text: 'truongson3',
+	// 	      style: {
+	// 	      	fontSize: '10px',
+	// 	      }
+	// 		},
+	// 		xAxis: {
 				
-				labels: {
-					formatter: function () {
-						return this.value;
-					}
-				}
-			},
-			yAxis: {
-				title: {
-					text: 'truongson3'
-				},
-				labels: {
-					formatter: function () {
-						return this.value  ;
-					}
-				}
-			},
-		    plotOptions: {
-				series: {
-					label: {
-						connectorAllowed: false
-					}
-				}
-			},
+	// 			labels: {
+	// 				formatter: function () {
+	// 					return this.value;
+	// 				}
+	// 			}
+	// 		},
+	// 		yAxis: {
+	// 			title: {
+	// 				text: 'truongson3'
+	// 			},
+	// 			labels: {
+	// 				formatter: function () {
+	// 					return this.value  ;
+	// 				}
+	// 			}
+	// 		},
+	// 	    plotOptions: {
+	// 			series: {
+	// 				label: {
+	// 					connectorAllowed: false
+	// 				}
+	// 			}
+	// 		},
 			
-			series: this.state.mai1
-		  });
-		  Highcharts.chart({
-		    chart: {
-		      type: 'bar',
-		      renderTo: 'truongson2'
-		    },
-		    title: {
-		      verticalAlign: 'middle',
-		      floating: true,
-		      text: 'truongson2',
-		      style: {
-		      	fontSize: '10px',
-		      }
-			},
-			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-			},
-		    plotOptions: {
-				series: {
-					dataLabels: {
-						enabled: true,
-						align: 'right',
-						color: '#FFFFFF',
-						x: -10
-					},
-					pointPadding: 0.1,
-					groupPadding: 0
-				}
-			},
+	// 		series: this.state.mai1
+	// 	  });
+	// 	  Highcharts.chart({
+	// 	    chart: {
+	// 	      type: 'bar',
+	// 	      renderTo: 'truongson2'
+	// 	    },
+	// 	    title: {
+	// 	      verticalAlign: 'middle',
+	// 	      floating: true,
+	// 	      text: 'truongson2',
+	// 	      style: {
+	// 	      	fontSize: '10px',
+	// 	      }
+	// 		},
+	// 		xAxis: {
+	// 			categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	// 		},
+	// 	    plotOptions: {
+	// 			series: {
+	// 				dataLabels: {
+	// 					enabled: true,
+	// 					align: 'right',
+	// 					color: '#FFFFFF',
+	// 					x: -10
+	// 				},
+	// 				pointPadding: 0.1,
+	// 				groupPadding: 0
+	// 			}
+	// 		},
 			
-			series: this.state.mai
-	  	});
-	}
+	// 		series: this.state.mai
+	//   	});
+	// }
 
-		
+		 
 	
 
 	async componentGetCase() {
@@ -257,7 +259,6 @@ class DashBoard extends React.Component {
 
 	componentDidMount() {
         this.componentGetCase();
-		this.highChartsRender();
     }
 
 
@@ -313,13 +314,14 @@ class DashBoard extends React.Component {
 
 							    
 
-							   <div id="atmospheric-composition">
+							   {/* <div id="atmospheric-composition">
 								
   							   
   							   </div>
 								 <div id="truongson"></div>
 								 <div id="truongson2"></div>
-								 <div id="truongson3"></div>
+								 <div id="truongson3"></div> */}
+								<div> <highChartsRender/> </div>
 
 
 								

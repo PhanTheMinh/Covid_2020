@@ -10,7 +10,7 @@ import DashBoard from "./components/DashBoard";
 // import CarDetail from "./components/Car/CarDetail";
 // import Account from "./components/Profile/Account";
 import ErrorPage from "./components/Error/404";
-// import MyCar from "./components/My-car/MyCar";
+import Chart from "./components/chart/chart";
 // import MyDrive from "./components/My-car/MyDrive";
 // import HowJuzWork from "./components/How-juz-work/HowJuzWork";
 // import Booking from "./components/Booking/Booking";
@@ -36,6 +36,10 @@ const routes = [
     path: "/error",
     exact: true,
     main: ErrorPage
+  },{
+    path: "/chart",
+    export: true,
+    main: Chart
   }
 
   
